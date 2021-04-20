@@ -1,0 +1,11 @@
+settings: settings.xml
+snapshot_id: snapshots
+excludes:
+  - md5
+  - sha1
+  - sha256
+  - sha512
+tmp_dir: assets
+pom_url_mapping:
+  "http://old.nexus.yourcompany.com:8081/repository/maven-snapshots/": "http://new.nexus.yourcompany.com/repository/maven-hosted-devel/"
+  "http://old.nexus.yourcompany.com:8081/repository/maven-releases/": "http://new.nexus.yourcompany.com/repository/maven-hosted-prod/"

@@ -1,0 +1,57 @@
+<settings>
+    <servers>
+        <server>
+            <id>releases</id>
+            <!--修改为目标Nexus的部署用户-->
+            <username>deploy-user</username>
+            <password>temp_passwd_for_deploy</password>
+        </server>
+        <server>
+            <id>snapshots</id>
+            <!--修改为目标Nexus的部署用户-->
+            <username>deploy-user</username>
+            <password>temp_passwd_for_deploy</password>
+        </server>
+    </servers>
+    <mirrors>
+        <mirror>
+            <id>nexus</id>
+            <mirrorOf>*</mirrorOf>
+            <!--这里可以修改为Nexus的代理地址 / 其他中央仓库 / 源Nexus仓库, 用于处理依赖-->
+            <url>http://nexus.yourcompany.com/repository/maven-group-proxys/</url>
+        </mirror>
+    </mirrors>
+    <profiles>
+        <profile>
+            <id>nexus</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>http://central</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url>http://central</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <!--make the profile active all the time -->
+        <activeProfile>nexus</activeProfile>
+    </activeProfiles>
+</settings>
